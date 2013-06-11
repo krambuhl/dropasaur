@@ -51,12 +51,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 
                 // on leave event start timer,\ remove expanded class on timer finish
                 $(options.select.item, base).bind(options.events.end, function (e) {                	
-                	with ({that : this}) {
-	                    options.timer = setTimeout(function() {
-		                	var index = $(that).index(options.select.item);
-		                    $(options.select.item, base).eq(index).removeClass(options.style.expanded);
-		                }, options.timeout);	                	
-                	}
+                	var that = this;
+	                options.timer = setTimeout(function() {
+		              	var index = $(that).index(options.select.item);
+		                $(options.select.item, base).eq(index).removeClass(options.style.expanded);
+		        }, options.timeout);	                	
+                	
 	                
                 });
             });
